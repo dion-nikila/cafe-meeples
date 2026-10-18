@@ -6,21 +6,21 @@ const plans = {
     title: 'A little quality time. A little friendly rivalry.',
     copy: 'Coffee, a little rivalry, and an excellent excuse for a rematch.',
     cta: 'Plan for two',
-    href: './visit.html?party=two',
+    href: './visit.html?party=two&v=type-only-4',
     party: '2'
   },
   crew: {
     title: 'Finally, a group plan everyone can get behind.',
     copy: 'Gather your people. Ask about a table, order a round, and let the friendly rivalry begin.',
     cta: 'Bring the crew',
-    href: './visit.html?party=crew',
+    href: './visit.html?party=crew&v=type-only-4',
     party: '3–5'
   },
   new: {
     title: 'Your next favourite game starts with hello.',
     copy: 'Meet new people at a community game night. Bring your curiosity; beginners are welcome.',
     cta: "See what's on",
-    href: './play.html#events',
+    href: './play.html?v=type-only-4#events',
     party: '1'
   }
 };
@@ -67,6 +67,8 @@ function initPlans() {
       const active = button.dataset.plan === key;
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
+      const label = $('.card-select', button);
+      if (label) label.textContent = active ? 'SELECTED' : 'PICK THIS PLAN';
     });
     title.textContent = plan.title;
     copy.textContent = plan.copy;
@@ -79,12 +81,12 @@ function initPlans() {
 }
 
 const chanceCards = [
-  { title: 'Make it a two-player afternoon.', copy: 'Invite your favourite human. Good coffee and a friendly rematch sound like a pretty good plan.', link: './play.html', cta: 'Pick your play' },
-  { title: 'Take a proper coffee break.', copy: 'Step away from the scroll. A cup, a catch-up and a little time around the table are calling.', link: './index.html#coffee', cta: 'Take a coffee break' },
-  { title: 'Release the group chat.', copy: 'Send the “are we actually doing this?” text. Turn all those maybe-plans into one good afternoon.', link: './visit.html?party=crew', cta: 'Plan a visit' },
-  { title: 'Play the wild card.', copy: 'New to board games? Find a community gathering and bring your curiosity. Everyone has a first round.', link: './play.html#events', cta: 'Find a gathering' },
-  { title: 'Give your brain a bonus round.', copy: 'A puzzle meetup or a quiz night could be your next good idea. Take a look at what the café has planned.', link: './play.html#events', cta: "See what's on" },
-  { title: 'Meet at Meeples.', copy: "Sometimes the best move is the simple one. Pick a day, gather your people, and we'll point you towards Borella.", link: './visit.html', cta: 'Find your way here' }
+  { title: 'Make it a two-player afternoon.', copy: 'Invite your favourite human. Good coffee and a friendly rematch sound like a pretty good plan.', link: './play.html?v=type-only-4', cta: 'Pick your play' },
+  { title: 'Take a proper coffee break.', copy: 'Step away from the scroll. A cup, a catch-up and a little time around the table are calling.', link: './index.html?v=type-only-4#coffee', cta: 'Take a coffee break' },
+  { title: 'Release the group chat.', copy: 'Send the “are we actually doing this?” text. Turn all those maybe-plans into one good afternoon.', link: './visit.html?party=crew&v=type-only-4', cta: 'Plan a visit' },
+  { title: 'Play the wild card.', copy: 'New to board games? Find a community gathering and bring your curiosity. Everyone has a first round.', link: './play.html?v=type-only-4#events', cta: 'Find a gathering' },
+  { title: 'Give your brain a bonus round.', copy: 'A puzzle meetup or a quiz night could be your next good idea. Take a look at what the café has planned.', link: './play.html?v=type-only-4#events', cta: "See what's on" },
+  { title: 'Meet at Meeples.', copy: "Sometimes the best move is the simple one. Pick a day, gather your people, and we'll point you towards Borella.", link: './visit.html?v=type-only-4', cta: 'Find your way here' }
 ];
 
 function initChance() {
@@ -97,20 +99,6 @@ function initChance() {
 
   let previousRoll = -1;
   const initialOverflow = document.body.style.overflow;
-  const board = $('.game-board');
-  const tileForCard = ['.tile-start', '.tile-coffee', '.tile-social', '.tile-draw', '.tile-dice', '.tile-go'];
-  let token = null;
-  if (board) {
-    token = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    token.setAttribute('class', 'board-token');
-    token.setAttribute('aria-hidden', 'true');
-    const piece = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-    piece.setAttribute('href', '#i-meeple');
-    token.append(piece);
-    const startTile = $('.tile-start', board);
-    startTile?.classList.add('landed');
-    startTile?.append(token);
-  }
   copy.setAttribute('aria-live', 'polite');
   copy.setAttribute('aria-atomic', 'true');
 
@@ -125,27 +113,11 @@ function initChance() {
     copy.textContent = card.copy;
     link.href = card.link;
     link.textContent = card.cta;
-    const pips = [
-      [[50, 50]],
-      [[31, 31], [69, 69]],
-      [[31, 31], [50, 50], [69, 69]],
-      [[31, 31], [69, 31], [31, 69], [69, 69]],
-      [[31, 31], [69, 31], [50, 50], [31, 69], [69, 69]],
-      [[31, 28], [69, 28], [31, 50], [69, 50], [31, 72], [69, 72]]
-    ];
-    const die = $('.dialog-die', dialog);
-    if (die) {
-      die.innerHTML = `<svg viewBox="0 0 100 100" class="is-rolling" aria-hidden="true"><rect x="13" y="13" width="74" height="74" rx="13" fill="var(--cream)" stroke="currentColor" stroke-width="4"/><g fill="currentColor">${pips[index].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6"/>`).join('')}</g></svg>`;
-    }
-    const landingTile = board && $(tileForCard[index], board);
-    if (landingTile && token) {
-      $$('.landed', board).forEach(tile => tile.classList.remove('landed'));
-      landingTile.classList.add('landed');
-      landingTile.append(token);
-    }
+    const ticket = $('#chance-number', dialog);
+    if (ticket) ticket.textContent = String(index + 1).padStart(2, '0');
   }
 
-  $('#roll-dice')?.addEventListener('click', () => {
+  $('#draw-chance')?.addEventListener('click', () => {
     drawChance();
     if (!dialog.open) dialog.showModal();
   });
@@ -198,7 +170,7 @@ function initEvents() {
       row.target = '_blank';
       row.rel = 'noopener noreferrer';
       row.setAttribute('aria-label', `${event.title}, ${event.day} October ${event.number}, ${event.time}. View the café's October line-up on Instagram.`);
-      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span><span class="event-arrow" aria-hidden="true"><svg class="ui-icon arrow-ne"><use href="#i-arrow"/></svg></span>`;
+      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span><span class="event-details" aria-hidden="true">Details</span>`;
       return row;
     });
     if (!rows.length) {
