@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f6f0df" name="theme-color"/>
+<title>Play &amp; What's On — Café Meeples, Colombo</title>
+<meta content="Come for the coffee. Stay for the games. Discover Café Meeples, a board-game café in Borella, Colombo 08. Plan a visit, find a meetup, and make your next move." name="description"/>
+<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="./assets/bricolage-grotesque-latin-800.woff2" rel="preload" type="font/woff2"/>
+<link href="./assets/fonts.css" rel="stylesheet"/>
+<link href="./style.css" rel="stylesheet"/>
+<script defer="" src="./app.js"></script>
+</head>
+<body class="play-page">
+<a class="skip-link" href="#main">Skip to the café</a>
+<svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-meeple" viewbox="0 0 80 84"><path d="M28 24a15 15 0 1 1 24 0l20 13-9 16-12-7 12 31H44l-4-15-4 15H17l12-31-12 7-9-16Z" fill="currentColor" stroke="var(--ink)" stroke-linejoin="round" stroke-width="3"></path></symbol>
+<symbol id="i-cup" viewbox="0 0 100 100"><path d="M20 32h56v28a28 28 0 0 1-56 0Z" fill="var(--cream)" stroke="currentColor" stroke-width="4"></path><path d="M77 38h4a13 13 0 0 1 0 26h-7M14 88h69M34 23c-10-11 9-12 1-23M57 23c-10-11 9-12 1-23" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path><path d="M30 45h31" stroke="currentColor" stroke-width="3"></path></symbol>
+<symbol id="i-dice" viewbox="0 0 100 100"><rect fill="var(--cream)" height="74" rx="13" stroke="currentColor" stroke-width="4" width="74" x="13" y="13"></rect><g fill="currentColor"><circle cx="31" cy="31" r="6"></circle><circle cx="69" cy="31" r="6"></circle><circle cx="50" cy="50" r="6"></circle><circle cx="31" cy="69" r="6"></circle><circle cx="69" cy="69" r="6"></circle></g></symbol>
+<symbol id="i-cards" viewbox="0 0 100 100"><rect fill="var(--coral)" height="76" rx="4" stroke="currentColor" stroke-width="3" transform="rotate(-18 49 54)" width="56" x="21" y="16"></rect><rect fill="var(--cream)" height="76" rx="4" stroke="currentColor" stroke-width="3" transform="rotate(9 56 48)" width="56" x="28" y="10"></rect><path d="m57 27 13 21-13 21-13-21Z" fill="var(--green)" stroke="currentColor" stroke-width="2"></path></symbol>
+<symbol id="i-star" viewbox="0 0 100 100"><path d="m50 5 9 29 27-15-15 27 25 10-29 7 10 27-25-17-17 24-2-29L5 65l23-18L11 23l29 8Z" fill="currentColor" stroke="var(--ink)" stroke-width="2"></path></symbol>
+<symbol id="i-arrow" viewbox="0 0 80 80"><path d="M13 40h51M44 19l21 21-21 21" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"></path></symbol>
+<symbol id="i-pawn" viewbox="0 0 100 100"><path d="M39 38a17 17 0 1 1 22 0l-2 10 12 29H29l12-29Zm-8 40h38l7 13H24Z" fill="currentColor" stroke="var(--ink)" stroke-width="3"></path></symbol>
+<symbol id="i-puzzle" viewbox="0 0 100 100"><path d="M15 15h27c-9 18 24 18 15 0h28v28c-18-9-18 24 0 15v27H57c9-18-24-18-15 0H15V58c18 9 18-24 0-15Z" fill="currentColor" stroke="var(--ink)" stroke-linejoin="round" stroke-width="3"></path></symbol>
+</svg>
+<header class="site-header">
+<a aria-label="Café Meeples, back to start" class="brand" href="./index.html"><svg aria-hidden="true"><use href="#i-meeple"></use></svg><span>CAFÉ<br/>MEEPLES</span></a>
+<nav aria-label="Main navigation" class="desktop-nav"><a href="index.html">The café</a><a aria-current="page" href="play.html">Play &amp; what's on</a><a href="visit.html">Visit us</a></nav>
+<a class="button small header-visit" href="./visit.html">Plan your visit <span aria-hidden="true">↗</span></a>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="menu-toggle"><span></span><span></span></button>
+<nav aria-label="Mobile navigation" class="mobile-nav" hidden="" id="mobile-nav"><a href="index.html">01 — The café</a><a href="play.html">02 — Play &amp; what's on</a><a href="visit.html">03 — Visit us</a></nav>
+</header><main id="main"><nav aria-label="Your route" class="page-route wrap"><a href="./index.html"><span>01</span><strong>THE CAFÉ</strong><b aria-hidden="true">↗</b></a><a aria-current="page" href="./play.html"><span>02</span><strong>PICK YOUR PLAY</strong><b aria-hidden="true">●</b></a><a href="./visit.html"><span>03</span><strong>LAND AT MEEPLES</strong><b aria-hidden="true">↗</b></a></nav><section aria-labelledby="play-title" class="play-section section" id="play"><div class="wrap">
+<div class="section-heading"><div><div class="section-label"><span class="number">02</span> PICK YOUR PLAYER CARD</div><h1 id="play-title">What's your<br/><span class="serif">game plan?</span></h1></div><p>Different people. Same good table.<br/><span class="mono">PICK A CARD ↓</span></p></div>
+<div aria-label="Choose your kind of visit" class="plan-cards" role="group">
+<button aria-pressed="true" class="plan-card active" data-plan="two"><span class="card-top">01 <span>THE TWO-PLAYER EDITION</span> ↗</span><span aria-hidden="true" class="card-art two-art"><svg class="meeple-one"><use href="#i-meeple"></use></svg><svg class="meeple-two"><use href="#i-meeple"></use></svg><span>+</span></span><span class="card-title">Just us two.</span><span class="card-description">A coffee date with a competitive side.</span><span class="card-select">PICK THIS PLAN <span>↗</span></span></button>
+<button aria-pressed="false" class="plan-card" data-plan="crew"><span class="card-top">02 <span>THE GROUP CHAT, IRL</span> ↗</span><span aria-hidden="true" class="card-art crew-art"><svg><use href="#i-cards"></use></svg><span class="scribble">GOOD<br/>HAND!</span><svg><use href="#i-dice"></use></svg></span><span class="card-title">The whole crew.</span><span class="card-description">Big laughs. Small rivalries. Great plans.</span><span class="card-select">PICK THIS PLAN <span>↗</span></span></button>
+<button aria-pressed="false" class="plan-card" data-plan="new"><span class="card-top">03 <span>THE WILD CARD</span> ↗</span><span aria-hidden="true" class="card-art new-art"><svg><use href="#i-star"></use></svg><b>?</b></span><span class="card-title">Something new.</span><span class="card-description">New faces. A new game. A new favourite.</span><span class="card-select">PICK THIS PLAN <span>↗</span></span></button>
+</div>
+<div aria-atomic="true" aria-live="polite" class="chosen-plan"><span class="mono">YOUR NEXT MOVE</span><div><h3 id="plan-title">A little quality time. A little friendly rivalry.</h3><p id="plan-copy">A coffee date. A little rivalry. An excellent excuse for a rematch.</p></div><a class="button" href="./visit.html?party=two" id="plan-link">Plan for two <span aria-hidden="true">↗</span></a></div>
+</div></section><section aria-labelledby="events-title" class="events-section section" id="events"><div class="wrap">
+<div class="section-heading"><div><div class="section-label"><span class="number">✳</span> THE OCTOBER EDITION · 2026</div><h2 id="events-title">Next on<br/><span class="serif">the board.</span></h2></div><div class="events-intro"><p>A good reason to leave the house.</p><a class="text-link" href="https://www.instagram.com/cafe_meeples/p/Dd7O908E3kX/" rel="noopener noreferrer" target="_blank">The café's full line-up <span aria-hidden="true">↗</span></a></div></div>
+<div aria-label="Filter the event calendar" class="event-filters" role="group"><button aria-pressed="true" data-filter="all">All tables</button><button aria-pressed="false" data-filter="games">Board games</button><button aria-pressed="false" data-filter="puzzles">Quizzes &amp; puzzles</button></div>
+<div class="event-list" id="event-list"></div>
+<p class="event-note">Café Meeples’ October 2026 line-up. Check with the café for spaces, entry and updates.</p>
+<div class="new-player"><svg aria-hidden="true"><use href="#i-meeple"></use></svg><div><h3>New player? Welcome.</h3><p>Tabletop SL’s game nights welcome beginners and explain the games. Find your next gathering.</p></div><a class="text-link" href="https://www.tabletopsl.com/events" rel="noopener noreferrer" target="_blank">Find a meetup <span aria-hidden="true">↗</span></a></div>
+</div></section><a class="next-page wrap" href="./visit.html"><span class="mono">ADVANCE TO SPACE 03</span><strong>Meet at Meeples.</strong><svg aria-hidden="true"><use href="#i-arrow"></use></svg></a></main><footer class="site-footer wrap"><a class="brand" href="./index.html"><svg aria-hidden="true"><use href="#i-meeple"></use></svg><span>CAFÉ<br/>MEEPLES</span></a><a href="https://www.instagram.com/cafe_meeples/" rel="noopener noreferrer" target="_blank">INSTAGRAM ↗</a><span class="footer-credit">A PLEXIS CONCEPT <span>✳</span></span></footer><dialog aria-labelledby="roll-title" class="game-dialog" id="roll-dialog"><button aria-label="Close your next move" class="dialog-close">×</button><span class="eyebrow">CHANCE CARD <span id="roll-number">01</span> / 06</span><div aria-hidden="true" class="dialog-die"><svg><use href="#i-dice"></use></svg></div><h2 id="roll-title">Your next move.</h2><p id="roll-copy"></p><a class="button primary full" href="./play.html" id="roll-link">Choose your play ↗</a><button class="text-link roll-again">Take another chance ↻</button></dialog><a class="mobile-visit" href="./visit.html"><svg aria-hidden="true"><use href="#i-meeple"></use></svg><span>YOUR NEXT MOVE?</span><strong>Plan a visit ↗</strong></a></body>
+</html>
