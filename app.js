@@ -70,7 +70,7 @@ function initPlans() {
     });
     title.textContent = plan.title;
     copy.textContent = plan.copy;
-    link.textContent = `${plan.cta} ↗`;
+    link.textContent = plan.cta;
     link.href = plan.href;
   }
 
@@ -124,7 +124,7 @@ function initChance() {
     title.textContent = card.title;
     copy.textContent = card.copy;
     link.href = card.link;
-    link.textContent = `${card.cta} ↗`;
+    link.textContent = card.cta;
     const pips = [
       [[50, 50]],
       [[31, 31], [69, 69]],
@@ -198,7 +198,7 @@ function initEvents() {
       row.target = '_blank';
       row.rel = 'noopener noreferrer';
       row.setAttribute('aria-label', `${event.title}, ${event.day} October ${event.number}, ${event.time}. View the café's October line-up on Instagram.`);
-      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span><span class="event-arrow" aria-hidden="true">↗</span>`;
+      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span><span class="event-arrow" aria-hidden="true"><svg class="ui-icon arrow-ne"><use href="#i-arrow"/></svg></span>`;
       return row;
     });
     if (!rows.length) {
@@ -265,7 +265,7 @@ function initEnquiry() {
       : `Hi Café Meeples! We'd love to visit on ${formattedDate} in the ${time}. Our group is ${party} people. Could you let us know about table availability, how playing works, any game fees, and your current menu? Thank you!`;
     form.hidden = true;
     result.hidden = false;
-    copyButton.textContent = 'Copy message ⧉';
+    copyButton.textContent = 'Copy message';
     status.textContent = "Copy your message, open the café's profile, then paste it into a DM.";
     result.focus();
   });
@@ -274,7 +274,7 @@ function initEnquiry() {
     try {
       await navigator.clipboard.writeText(messageField.value);
       status.textContent = 'Message copied. Open Instagram and paste it into a DM to the café.';
-      copyButton.textContent = 'Message copied ✓';
+      copyButton.textContent = 'Message copied';
     } catch {
       messageField.focus();
       messageField.select();
