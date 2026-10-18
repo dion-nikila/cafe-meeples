@@ -21,3 +21,5 @@
 body{overflow-x:clip}.table-enquiry select,.table-enquiry input,.table-enquiry textarea{min-width:0;max-width:100%}.visit-page-title .serif{white-space:nowrap}
 @media(max-width:580px){.visit-page-title h1{font-size:clamp(48px,14vw,60px);max-width:none}.visit-title-dice{right:0;top:0;bottom:auto}.visit-title-dice svg{width:51px;height:51px}.visit-card-top{font-size:25px}.visit-layout .visit-card h3{font-size:40px}}
 @media(max-width:350px){.visit-layout .visit-card h3{font-size:35px}.table-enquiry{padding-inline:21px}}
+html{overflow-x:clip}
+@media(min-width:581px) and (max-width:800px){.visit-layout{padding-inline:10px;gap:32px}.visit-layout .table-enquiry{transform:none}}
