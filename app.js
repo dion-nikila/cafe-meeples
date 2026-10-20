@@ -2,27 +2,9 @@ const $ = (selector, root = document) => root?.querySelector(selector) ?? null;
 const $$ = (selector, root = document) => [...(root?.querySelectorAll(selector) ?? [])];
 
 const plans = {
-  two: {
-    title: 'A little quality time. A little friendly rivalry.',
-    copy: 'Coffee, a little rivalry, and an excellent excuse for a rematch.',
-    cta: 'Plan for two',
-    href: './visit.html?party=two&v=type-only-4',
-    party: '2'
-  },
-  crew: {
-    title: 'Finally, a group plan everyone can get behind.',
-    copy: 'Gather your people. Ask about a table, order a round, and let the friendly rivalry begin.',
-    cta: 'Bring the crew',
-    href: './visit.html?party=crew&v=type-only-4',
-    party: '3–5'
-  },
-  new: {
-    title: 'Your next favourite game starts with hello.',
-    copy: 'Meet new people at a community game night. Bring your curiosity; beginners are welcome.',
-    cta: "See what's on",
-    href: './play.html?v=type-only-4#events',
-    party: '1'
-  }
+  two: { title: 'A table for two.', copy: 'Pick a day and ask about a table.', cta: 'Plan for two', href: './visit.html?party=two&v=board-mobile-5', party: '2' },
+  crew: { title: 'A table for your group.', copy: 'Tell the café how many are coming.', cta: 'Plan for a group', href: './visit.html?party=crew&v=board-mobile-5', party: '3–5' },
+  new: { title: 'Start with a meetup.', copy: 'Tabletop SL welcomes beginners.', cta: 'See the events', href: './play.html?v=board-mobile-5#events', party: '1' }
 };
 
 function initNavigation() {
@@ -68,7 +50,7 @@ function initPlans() {
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
       const label = $('.card-select', button);
-      if (label) label.textContent = active ? 'SELECTED' : 'PICK THIS PLAN';
+      if (label) label.textContent = active ? 'Selected' : 'Choose';
     });
     title.textContent = plan.title;
     copy.textContent = plan.copy;
@@ -81,12 +63,12 @@ function initPlans() {
 }
 
 const chanceCards = [
-  { title: 'Make it a two-player afternoon.', copy: 'Invite your favourite human. Good coffee and a friendly rematch sound like a pretty good plan.', link: './play.html?v=type-only-4', cta: 'Pick your play' },
-  { title: 'Take a proper coffee break.', copy: 'Step away from the scroll. A cup, a catch-up and a little time around the table are calling.', link: './index.html?v=type-only-4#coffee', cta: 'Take a coffee break' },
-  { title: 'Release the group chat.', copy: 'Send the “are we actually doing this?” text. Turn all those maybe-plans into one good afternoon.', link: './visit.html?party=crew&v=type-only-4', cta: 'Plan a visit' },
-  { title: 'Play the wild card.', copy: 'New to board games? Find a community gathering and bring your curiosity. Everyone has a first round.', link: './play.html?v=type-only-4#events', cta: 'Find a gathering' },
-  { title: 'Give your brain a bonus round.', copy: 'A puzzle meetup or a quiz night could be your next good idea. Take a look at what the café has planned.', link: './play.html?v=type-only-4#events', cta: "See what's on" },
-  { title: 'Meet at Meeples.', copy: "Sometimes the best move is the simple one. Pick a day, gather your people, and we'll point you towards Borella.", link: './visit.html?v=type-only-4', cta: 'Find your way here' }
+  { title: 'Coffee for two.', copy: 'Bring a friend. Plan a café visit.', link: './visit.html?party=two&v=board-mobile-5', cta: 'Plan a visit' },
+  { title: 'Try a meetup.', copy: 'Find the next board-game gathering.', link: './play.html?v=board-mobile-5#events', cta: 'See the events' },
+  { title: 'Coffee break.', copy: "Ask the café for today's menu.", link: './index.html?v=board-mobile-5#coffee', cta: 'Food & drinks' },
+  { title: 'Bring the group.', copy: 'Ask about a table for your friends.', link: './visit.html?party=crew&v=board-mobile-5', cta: 'Plan a group visit' },
+  { title: 'Puzzle night?', copy: 'Check dates for puzzles and quizzes.', link: './play.html?v=board-mobile-5#events', cta: 'See the events' },
+  { title: 'Find the café.', copy: 'Get directions and opening hours.', link: './visit.html?v=board-mobile-5', cta: 'Visit Meeples' }
 ];
 
 function initChance() {
@@ -147,10 +129,10 @@ function colomboDate() {
 
 const today = colomboDate();
 const events = [
-  { date: '2026-10-20', day: 'TUE', number: '20', title: 'Puzzle Meetup', host: 'A little patience. A shared challenge.', time: '5:30 pm — 9 pm', type: 'puzzles' },
+  { date: '2026-10-20', day: 'TUE', number: '20', title: 'Puzzle Meetup', host: '', time: '5:30 pm — 9 pm', type: 'puzzles' },
   { date: '2026-10-24', day: 'SAT', number: '24', title: 'Blood on the Clocktower', host: 'Hosted by BotC SL', time: '3 pm — 7 pm', type: 'games' },
   { date: '2026-10-25', day: 'SUN', number: '25', title: 'Board Game Meetup', host: 'Hosted by Tabletop SL', time: '1:30 pm — 9 pm', type: 'games' },
-  { date: '2026-10-28', day: 'WED', number: '28', title: 'Quiz Night', host: 'Bring your most useful random knowledge.', time: '7:15 pm onwards', type: 'puzzles' },
+  { date: '2026-10-28', day: 'WED', number: '28', title: 'Quiz Night', host: '', time: '7:15 pm onwards', type: 'puzzles' },
   { date: '2026-10-30', day: 'FRI', number: '30', title: 'Board Game Night', host: 'Hosted by Tabletop SL', time: '5:30 pm — 11 pm', type: 'games' }
 ];
 
@@ -170,7 +152,7 @@ function initEvents() {
       row.target = '_blank';
       row.rel = 'noopener noreferrer';
       row.setAttribute('aria-label', `${event.title}, ${event.day} October ${event.number}, ${event.time}. View the café's October line-up on Instagram.`);
-      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span><span class="event-details" aria-hidden="true">Details</span>`;
+      row.innerHTML = `<span class="event-date"><strong>${event.number}</strong><span>OCT<br>${event.day}</span></span><div class="event-info"><h3>${event.title}</h3><p>${event.host}</p></div><span class="event-time">${event.time}</span>`;
       return row;
     });
     if (!rows.length) {
@@ -233,25 +215,25 @@ function initEnquiry() {
     const party = partyInput.value;
     const time = timeInput.value;
     messageField.value = party === '1'
-      ? `Hi Café Meeples! I'd love to visit on ${formattedDate} in the ${time}. I'm coming on my own and interested in joining a meetup. Is there a suitable gathering? Could you share the details and any entry fees? Thank you!`
-      : `Hi Café Meeples! We'd love to visit on ${formattedDate} in the ${time}. Our group is ${party} people. Could you let us know about table availability, how playing works, any game fees, and your current menu? Thank you!`;
+      ? `Hi Café Meeples! I'd like to join a meetup on ${formattedDate} in the ${time}. Is anything planned, and how do I join? Thanks!`
+      : `Hi Café Meeples! Do you have a table for ${party} people on ${formattedDate} in the ${time}? Please share any game fees and the current menu. Thanks!`;
     form.hidden = true;
     result.hidden = false;
     copyButton.textContent = 'Copy message';
-    status.textContent = "Copy your message, open the café's profile, then paste it into a DM.";
+    status.textContent = "Copy your message, then paste it into a DM.";
     result.focus();
   });
 
   copyButton.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(messageField.value);
-      status.textContent = 'Message copied. Open Instagram and paste it into a DM to the café.';
+      status.textContent = 'Copied. Open Instagram and paste it into a DM.';
       copyButton.textContent = 'Message copied';
     } catch {
       messageField.focus();
       messageField.select();
       messageField.setSelectionRange(0, messageField.value.length);
-      status.textContent = 'Your message is selected. Copy it, then paste it into a DM to the café.';
+      status.textContent = 'Copy the selected message, then paste it into a DM.';
     }
   });
 }

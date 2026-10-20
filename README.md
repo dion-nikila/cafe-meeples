@@ -9,7 +9,8 @@ A typography-led game board, chance cards, numbered player cards, dated event fi
 - `index.html`: café and coffee introduction.
 - `play.html`: player cards and calendar.
 - `visit.html`: address, hours and enquiry composer.
-- `style.css`: shared responsive visual design.
+- `style.css`: shared visual design.
+- `refresh.css`: compact mobile board, readable navigation and concise page layouts.
 - `app.js`: optional interactions and dated event data.
 - `assets/`: self-hosted fonts, a text favicon and one café photograph.
 
